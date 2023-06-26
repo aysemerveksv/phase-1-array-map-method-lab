@@ -14,3 +14,21 @@ const tutorials = [
 const titleCased = () => {
   return tutorials
 }
+
+const titleCaseTutorials = tutorials.map(tutorial => {
+  const words = tutorial.split(' ');
+  const capitalizedWords = words.map(word => {
+    const firstLetter = word.charAt(0).toUpperCase();
+    const restOfWord = word.slice(1);
+    return firstLetter + restOfWord;
+  });
+  return capitalizedWords.join(' ');
+});
+
+// Sort the titleCaseTutorials array to match the order of the original tutorials array
+const sortedTitleCaseTutorials = titleCaseTutorials.sort((a, b) => {
+  return tutorials.indexOf(a) - tutorials.indexOf(b);
+});
+
+console.log(sortedTitleCaseTutorials);
+
